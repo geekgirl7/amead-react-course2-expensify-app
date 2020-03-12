@@ -116,9 +116,15 @@ export class ExpenseListFilters extends React.Component {
 
 // // What do we want off of the store?
 // // Here, just need the filters, not the expenses
-const mapStateToProps=(state) => {
+// DON'T FORGET THE PARENS WHEN RETURNING AN OBJECT!!!
+//  Otherwise the browser will generate an error:
+//    "bundle.js this.props.filters is undefined", and
+//    the site will NOT LOAD!
+//  Note that the tests will ALL PASS without the parens!
+//    Need to double-check EVERYTHING!
+const mapStateToProps=(state) => ({
   filters: state.filters
- };
+ });
 
  const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
