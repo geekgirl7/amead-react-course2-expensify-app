@@ -4,6 +4,7 @@
   "main": "index.js",
   "author": "Emmie O'Neill",
   "license": "MIT",
+  "engines": {"node": "8.17.0"},
   "scripts": {
     "serve": "live-server public/",
     "build:dev": "webpack",
