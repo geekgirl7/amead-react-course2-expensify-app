@@ -1,5 +1,7 @@
 import React from 'react'; // don't forget this!!!
 import {Link} from 'react-router-dom';
+import moment from 'moment';
+import numeral from 'numeral';
 
 // Don't forget to remove these - they aren't necessary after Challenge #3
 //import {connect} from 'react-redux';
@@ -30,12 +32,16 @@ import {Link} from 'react-router-dom';
 // To use an expense property as part of a dynamic link, 
 //   interpolate the *to=* value: (example): to={`/edit/${id}`}
 
-const ExpenseListItem = ({ id, description, amount, createdAt }) => (
+const ExpenseListItem=( {id,description,amount,createdAt} ) => (
   <div>
     <Link to={`/edit/${id}`}>
       <h3>{description}</h3>
     </Link>
-    <p>{amount} - {createdAt}</p>
+    <p>
+      {numeral(amount/100).format('$0,0.00')}
+      -
+      {moment(createdAt).format('MMMM Do, YYYY')}
+    </p>
   </div>
 );
 
